@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check && npm run check:worker",
-    "check:worker": "tsc --project tsconfig.worker.json --noEmit"
+    "check:worker": "tsc --project tsconfig.worker.json --noEmit",
+    "test:static": "node scripts/test-static.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.0",
