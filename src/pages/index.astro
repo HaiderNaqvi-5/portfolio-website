@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
-import { experience, process, site, skills } from '../data/site';
+import { certificates, experience, process, projects, site, skills } from '../data/site';
 ---
 
 <BaseLayout title={`${site.shortName} — ${site.role}`} description={site.description}>
@@ -37,18 +37,33 @@ import { experience, process, site, skills } from '../data/site';
       <div class="project-placeholder"><span>PHASE 0</span><h3>Project approval matrix in progress</h3><p>Three featured projects and two full case studies will appear here once publication constraints are approved.</p><a href="/case-studies/">View case-study framework →</a></div>
     </section>
 
+    <section class="section shell" id="other-projects">
+      <div class="section-label">04 / OTHER PROJECTS</div>
+      <div class="project-list">{projects.map((project) => <article><div><p class="eyebrow">{project.kind}</p><h2>{project.name}</h2><p>{project.summary}</p></div><div class="project-meta"><p>{project.technologies}</p><span>{project.state}</span></div></article>)}</div>
+    </section>
+
     <section class="section shell" id="process">
-      <div class="section-label">04 / HOW I WORK</div>
+      <div class="section-label">05 / HOW I WORK</div>
       <ol class="process-list">{process.map(([number, title, description]) => <li><span>{number}</span><h2>{title}</h2><p>{description}</p></li>)}</ol>
     </section>
 
     <section class="section shell" id="skills">
-      <div class="section-label">05 / CAPABILITIES</div>
+      <div class="section-label">06 / CAPABILITIES</div>
       <div class="skills-grid">{skills.map(([group, list, note]) => <article><p class="eyebrow">{group}</p><h2>{list}</h2><p>{note}</p></article>)}</div>
     </section>
 
+    <section class="section shell" id="certificates">
+      <div class="section-label">07 / CERTIFICATES</div>
+      <div class="certificate-list">{certificates.map(([title, issuer, details]) => <article><p class="eyebrow">{details}</p><h2>{title}</h2><p>{issuer}</p></article>)}</div>
+    </section>
+
+    <section class="section shell" id="writing">
+      <div class="section-label">08 / WRITING</div>
+      <div class="writing-intro"><h2>From decision to delivered system.</h2><p>Long-form case studies will explain the problem, constraints, approach, architecture, important decisions, and result behind selected work.</p><a class="button quiet" href="/case-studies/">Browse case studies <span>→</span></a></div>
+    </section>
+
     <section class="section shell" id="contact">
-      <div class="section-label">06 / CONTACT</div>
+      <div class="section-label">09 / CONTACT</div>
       <div class="contact-grid"><div><h2>Let’s build something that holds up.</h2><p>For a role, a product problem, or a technically interesting conversation, reach me by email or WhatsApp.</p><a class="contact-email" href={`mailto:${site.email}`}>{site.email}</a><a class="contact-whatsapp" href={site.whatsapp} target="_blank" rel="noreferrer">WhatsApp: +92 313 6314125 ↗</a></div><form data-contact-form><label>Name<input name="name" autocomplete="name" required disabled /></label><label>Email<input type="email" name="email" autocomplete="email" required disabled /></label><label>Message<textarea name="message" rows="5" required disabled></textarea></label><label class="consent"><input type="checkbox" required disabled /> I agree to the <a href="/privacy/">privacy notice</a>.</label><button class="button primary" type="submit" disabled>Contact delivery pending <span>→</span></button><p class="form-note">Contact delivery will be enabled after the provider and security controls in the technical specification are configured.</p></form></div>
     </section>
   </main>

@@ -55,3 +55,17 @@ export const skills = [
   ['AI systems', 'RAG, embeddings, pgvector, LangChain, LangGraph', 'Build grounded AI features that work from relevant context rather than generic output.'],
   ['Frontend & delivery', 'React, Next.js, Vite, Docker, Cloudflare', 'Ship technical systems through responsive interfaces and repeatable deployment paths.'],
 ] as const;
+
+export const projects = [
+  { name: 'GA Traders', kind: 'Client system', summary: 'Role-based wholesale distribution operations for inventory, field order booking, invoicing, expenses, and reporting.', technologies: 'Express · React · Flutter · PostgreSQL', state: 'Text-only presentation pending client approval' },
+  { name: 'CampaignIQ', kind: 'Grounded AI workspace', summary: 'A review-first outreach workflow that connects CRM contacts, website intelligence, and personalized campaigns.', technologies: 'FastAPI · Next.js · pgvector · Redis', state: 'Awaiting project approval matrix' },
+  { name: 'QSScope', kind: 'Developer tooling', summary: 'Local-first quality, security, and testing intelligence for software projects.', technologies: 'FastAPI · Next.js · Playwright · SQLite', state: 'Awaiting project approval matrix' },
+  { name: 'EMC Veritas', kind: 'Active in-progress platform', summary: 'Digital certificate issuance, leadership recognition, and public verification for a student organization.', technologies: 'FastAPI · React · Supabase · QR verification', state: 'Collaborator approval required; always framed as in progress' },
+  { name: 'EmbedIQ', kind: 'Embeddable AI assistant', summary: 'A website-specific RAG chatbot platform with a dashboard, crawler, knowledge base, and chat widget.', technologies: 'FastAPI · Next.js · Celery · pgvector', state: 'Candidate for approved public presentation' },
+  { name: 'InternFlow', kind: 'Operations platform', summary: 'An internship operations hub for onboarding, tasks, attendance, reviews, reporting, and certificates.', technologies: 'FastAPI · React · PostgreSQL · WebSockets', state: 'Candidate for approved public presentation' },
+] as const;
+
+export const certificates = [
+  ['Certificate of Appreciation', 'TechXhibit 2026 Final Year Project Competition', 'Air University Multan · 2026'],
+  ['Mobile App Development Certification', 'Issuer verification pending', 'Year verification pending'],
+] as const;
