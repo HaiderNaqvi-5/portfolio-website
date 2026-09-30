@@ -1,8 +1,9 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  integrations: [mdx()],
+  integrations: [mdx(), sitemap()],
   output: 'static',
-  site: 'https://haidernaqvi.pages.dev',
+  site: 'https://portfolio-website.pages.dev',
 });

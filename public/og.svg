@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Haider Naqvi — Python / AI Engineer</title>
+  <desc id="desc">Backend and AI systems built around real workflows, reliable data, and clear outcomes.</desc>
+  <rect width="1200" height="630" fill="#111211"/>
+  <rect x="72" y="68" width="1056" height="494" fill="none" stroke="#30342f"/>
+  <text x="108" y="132" fill="#d1fc68" font-family="monospace" font-size="20" letter-spacing="4">PYTHON / AI ENGINEER</text>
+  <text x="108" y="272" fill="#e9e5dc" font-family="Georgia, serif" font-size="78" font-weight="bold">Haider Naqvi</text>
+  <text x="108" y="344" fill="#a49f95" font-family="monospace" font-size="25">Backend and AI systems built around real workflows,</text>
+  <text x="108" y="382" fill="#a49f95" font-family="monospace" font-size="25">reliable data, and clear outcomes.</text>
+  <path d="M108 474h144M272 474h144M436 474h144M600 474h144M764 474h144M928 474h144" stroke="#d1fc68" stroke-width="12"/>
+  <text x="108" y="525" fill="#d1fc68" font-family="monospace" font-size="17" letter-spacing="3">DISCOVER → MODEL → BUILD → DELIVER</text>
+</svg>
