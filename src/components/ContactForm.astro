@@ -1,0 +1,60 @@
+---
+const enabled = import.meta.env.PUBLIC_CONTACT_FORM_ENABLED === 'true';
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
+---
+
+{enabled && turnstileSiteKey && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
+
+<form data-contact-form data-enabled={enabled ? 'true' : 'false'} novalidate>
+  <label>Name<input name="name" autocomplete="name" required disabled={!enabled} minlength="2" maxlength="100" /></label>
+  <label>Email<input type="email" name="email" autocomplete="email" required disabled={!enabled} maxlength="254" /></label>
+  <label>Message<textarea name="message" rows="5" required disabled={!enabled} minlength="10" maxlength="5000"></textarea></label>
+  <label class="honeypot" aria-hidden="true">Company<input name="company" tabindex="-1" autocomplete="off" /></label>
+  {enabled && turnstileSiteKey && <div class="cf-turnstile" data-sitekey={turnstileSiteKey}></div>}
+  <label class="consent"><input type="checkbox" name="consent" required disabled={!enabled} /> I agree to the <a href="/privacy/">privacy notice</a>.</label>
+  <button class="button primary" type="submit" disabled={!enabled}>{enabled ? <>Send message <span>→</span></> : <>Contact delivery pending <span>→</span></>}</button>
+  <p class="form-note" data-form-status aria-live="polite">{enabled ? 'Messages are protected by spam checks before delivery.' : 'Contact delivery will be enabled after the provider and security controls in the technical specification are configured.'}</p>
+</form>
+
+<script>
+  type TurnstileApi = { getResponse?: () => string; reset?: () => void };
+  const turnstileApi = () => (window as typeof window & { turnstile?: TurnstileApi }).turnstile;
+  const form = document.querySelector('[data-contact-form]');
+  if (form instanceof HTMLFormElement && form.dataset.enabled === 'true') {
+    const submit = form.querySelector('button[type="submit"]');
+    const status = form.querySelector('[data-form-status]');
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!form.reportValidity() || !(submit instanceof HTMLButtonElement) || !(status instanceof HTMLElement)) return;
+
+      const values = new FormData(form);
+      const turnstile = turnstileApi()?.getResponse?.() ?? '';
+      submit.disabled = true;
+      status.textContent = 'Sending your message…';
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({
+            name: values.get('name'),
+            email: values.get('email'),
+            message: values.get('message'),
+            company: values.get('company'),
+            consent: values.get('consent') === 'on',
+            turnstileToken: turnstile,
+          }),
+        });
+        const body = await response.json() as { message?: string; error?: string };
+        if (!response.ok) throw new Error(body.error || 'Your message could not be delivered.');
+        form.reset();
+        turnstileApi()?.reset?.();
+        status.textContent = body.message || 'Message sent. Thanks — I’ll get back to you soon.';
+      } catch (error) {
+        status.textContent = error instanceof Error ? error.message : 'Your message could not be delivered. Please use the direct email link instead.';
+      } finally {
+        submit.disabled = false;
+      }
+    });
+  }
+</script>

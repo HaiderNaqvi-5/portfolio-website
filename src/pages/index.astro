@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
 import Header from '../components/Header.astro';
 import { certificates, experience, process, projects, site, skills } from '../data/site';
 ---
@@ -64,7 +65,7 @@ import { certificates, experience, process, projects, site, skills } from '../da
 
     <section class="section shell" id="contact">
       <div class="section-label">09 / CONTACT</div>
-      <div class="contact-grid"><div><h2>Let’s build something that holds up.</h2><p>For a role, a product problem, or a technically interesting conversation, reach me by email or WhatsApp.</p><a class="contact-email" href={`mailto:${site.email}`}>{site.email}</a><a class="contact-whatsapp" href={site.whatsapp} target="_blank" rel="noreferrer">WhatsApp: +92 313 6314125 ↗</a></div><form data-contact-form><label>Name<input name="name" autocomplete="name" required disabled /></label><label>Email<input type="email" name="email" autocomplete="email" required disabled /></label><label>Message<textarea name="message" rows="5" required disabled></textarea></label><label class="consent"><input type="checkbox" required disabled /> I agree to the <a href="/privacy/">privacy notice</a>.</label><button class="button primary" type="submit" disabled>Contact delivery pending <span>→</span></button><p class="form-note">Contact delivery will be enabled after the provider and security controls in the technical specification are configured.</p></form></div>
+      <div class="contact-grid"><div><h2>Let’s build something that holds up.</h2><p>For a role, a product problem, or a technically interesting conversation, reach me by email or WhatsApp.</p><a class="contact-email" href={`mailto:${site.email}`}>{site.email}</a><a class="contact-whatsapp" href={site.whatsapp} target="_blank" rel="noreferrer">WhatsApp: +92 313 6314125 ↗</a></div><ContactForm /></div>
     </section>
   </main>
   <footer class="shell footer"><p>© {new Date().getFullYear()} {site.shortName}</p><div><a href={site.links.github}>GitHub</a><a href="/privacy/">Privacy</a></div></footer>

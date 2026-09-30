@@ -39,3 +39,5 @@ Provider account access, verified sender/domain, storage resource, and productio
 ## Implemented endpoint
 
 `functions/api/contact.ts` implements the Pages Function contract, including payload validation, honeypot behavior, KV-backed rate limiting, Turnstile verification, D1 persistence, and Resend delivery state updates. It cannot be live-tested until the bindings and credentials above exist. The 12-month cleanup and 15-minute failure alert need a scheduled Worker/monitoring resource before launch.
+
+The frontend form is deployment-gated by `PUBLIC_CONTACT_FORM_ENABLED=true`. When enabled with a Turnstile site key, it exposes accessible loading, success, and error states while the server endpoint remains the authority for validation and delivery.
