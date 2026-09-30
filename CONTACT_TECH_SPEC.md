@@ -13,7 +13,8 @@ Use a **Cloudflare Pages Function** for the public contact endpoint, Cloudflare 
 | `EMAIL_API_KEY` | Delivery and failure notifications | Secret |
 | `EMAIL_FROM` | Verified sender address | Secret/config |
 | `EMAIL_TO` | Haider's receiving address | Secret/config |
-| rate-limit store | Per-IP five-per-hour enforcement | Provider resource |
+| `CONTACT_DB` | D1 binding for submissions | Provider resource |
+| `CONTACT_RATE_LIMIT` | KV binding for per-IP five-per-hour enforcement | Provider resource |
 
 ## Request sequence
 
@@ -34,3 +35,7 @@ Use a **Cloudflare Pages Function** for the public contact endpoint, Cloudflare 
 ## Pre-launch blocker
 
 Provider account access, verified sender/domain, storage resource, and production secrets have not been supplied. The public form remains deliberately disabled until these are configured and the PRD's production checklist is completed.
+
+## Implemented endpoint
+
+`functions/api/contact.ts` implements the Pages Function contract, including payload validation, honeypot behavior, KV-backed rate limiting, Turnstile verification, D1 persistence, and Resend delivery state updates. It cannot be live-tested until the bindings and credentials above exist. The 12-month cleanup and 15-minute failure alert need a scheduled Worker/monitoring resource before launch.
