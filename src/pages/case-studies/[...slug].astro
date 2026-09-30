@@ -1,0 +1,24 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('caseStudies', ({ data }) => !data.draft);
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={`${entry.data.title} — Haider Naqvi`} description={entry.data.summary}>
+  <Header />
+  <main class="shell case-study">
+    <a class="back-link" href="/case-studies/">← All case studies</a>
+    <p class="eyebrow">{entry.data.project} · {entry.data.readingTime}</p>
+    <h1>{entry.data.title}</h1>
+    <p class="case-summary">{entry.data.summary}</p>
+    <article><Content /></article>
+  </main>
+</BaseLayout>

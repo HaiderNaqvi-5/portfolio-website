@@ -1,0 +1,12 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+
+const entries = await getCollection('caseStudies', ({ data }) => !data.draft);
+const caseStudies = entries.sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+---
+<BaseLayout title="Case studies — Haider Naqvi" description="Technical project case studies by Haider Naqvi.">
+  <Header />
+  <main class="shell page-intro"><p class="eyebrow">CASE STUDIES</p><h1>Technical decisions deserve context.</h1><p>Each published study follows the same thread: problem, requirement, approach, build, technical decisions, and result.</p>{caseStudies.length > 0 ? <ol class="case-list">{caseStudies.map((entry) => <li><a href={`/case-studies/${entry.id}/`}><p class="eyebrow">{entry.data.project} · {entry.data.readingTime}</p><h2>{entry.data.title}</h2><p>{entry.data.summary}</p><span>Read case study →</span></a></li>)}</ol> : <div class="empty-state"><p>Phase 0 approval is in progress. Case studies will be published only after their claims and assets are verified.</p></div>}<a class="button quiet" href="/">Return home <span>←</span></a></main>
+</BaseLayout>
