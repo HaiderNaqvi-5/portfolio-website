@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import PortfolioMotion from '../components/PortfolioMotion';
 
 interface Props {
   title?: string;
@@ -32,6 +33,7 @@ const {
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
+    <PortfolioMotion client:idle />
     <slot />
     <script is:inline>
       const toggle = document.querySelector('[data-theme-toggle]');
