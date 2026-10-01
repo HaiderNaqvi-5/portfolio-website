@@ -1,0 +1,32 @@
+---
+title: "Turning field orders into a connected operations system"
+summary: "A text-only case study of a client system designed to connect wholesale inventory, field ordering, invoicing, expenses, and reporting."
+readingTime: "5 min read"
+publishedAt: 2026-10-01
+draft: false
+project: "GA Traders"
+---
+
+## Problem
+
+Wholesale operations become difficult to trust when inventory, field orders, invoices, expenses, and reporting live in separate workflows. GA Traders needed a clearer operating layer for the people handling those responsibilities every day.
+
+## Requirement
+
+The system needed to support distinct roles without turning routine work into a spreadsheet exercise: administrators needed visibility and control; field bookers needed a practical way to capture orders; the business needed a dependable route from activity to reporting.
+
+## Approach
+
+I treated the work as an operations system rather than a collection of screens. The design started with the business flow—stock to order, order to invoice, and invoice to reporting—then defined the roles and data boundaries required to keep that flow coherent.
+
+## Build
+
+The solution pairs a React administration experience with a Flutter Booker application and a shared Express backend. PostgreSQL supports the operational data model, while the delivery architecture uses Cloudflare services for the deployed system.
+
+## Technical decisions and challenges
+
+The main engineering challenge was preserving a consistent view of operational data across web and mobile interfaces. Role-aware APIs and a shared data model kept workflow rules in the backend instead of duplicating them across clients. The work also required careful handling of commercial information, so this public account intentionally omits internal implementation details, source code, screenshots, and any live link.
+
+## Result
+
+The project created a connected foundation for order booking, inventory-aware operations, invoicing, expense tracking, and reporting. It is presented as a client-approved, text-only case study to respect the confidentiality of the business.

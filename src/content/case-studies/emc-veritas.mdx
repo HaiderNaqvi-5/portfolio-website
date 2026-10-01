@@ -1,0 +1,32 @@
+---
+title: "Making certificates easier to issue and harder to doubt"
+summary: "A production-rollout case study of a digital certificate issuance and QR verification platform for a student organization."
+readingTime: "5 min read"
+publishedAt: 2026-10-01
+draft: false
+project: "EMC Veritas"
+---
+
+## Problem
+
+Certificates and leadership recognition are only useful when recipients and third parties can trust them. The Event Management Club needed a practical way to issue credentials while giving anyone a clear path to verify them.
+
+## Requirement
+
+The platform needed to support certificate issuance, leadership recognition, and public verification without making the process difficult for the organization or the person checking a credential.
+
+## Approach
+
+I focused the product around a simple trust loop: create a durable record, attach a verification path, and make the result understandable in a browser. That kept the problem grounded in operational use rather than treating QR codes as a decorative feature.
+
+## Build
+
+EMC Veritas combines a React interface, a FastAPI backend, a Supabase-backed data layer, and QR-driven verification. The system is designed to make issued records easy to manage while providing a direct public verification experience.
+
+## Technical decisions and challenges
+
+Verification systems need to be clear at the moment of use. The data model and verification route were designed to keep the credential lookup path focused and to separate issuance workflows from the public verification surface. Production readiness is the current priority, so this case study deliberately avoids claiming release results before the live rollout is confirmed.
+
+## Result
+
+EMC Veritas is in active production rollout. It provides a concrete foundation for issuing and checking organization credentials, and this page will be updated with the live verification experience after launch confirmation.

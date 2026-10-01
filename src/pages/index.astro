@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
 import Header from '../components/Header.astro';
-import { certificates, experience, process, projects, site, skills } from '../data/site';
+import { certificates, experience, featuredProjects, process, projects, site, skills } from '../data/site';
 ---
 
 <BaseLayout title={`${site.shortName} — ${site.role}`} description={site.description}>
@@ -34,13 +34,13 @@ import { certificates, experience, process, projects, site, skills } from '../da
 
     <section class="section shell" id="work">
       <div class="section-label">03 / SELECTED WORK</div>
-      <div class="work-intro"><h2>Case studies, not a gallery of claims.</h2><p>Featured project narratives are published only after their source material, permissions, and outcome statements have been reviewed.</p></div>
-      <div class="project-placeholder"><span>PHASE 0</span><h3>Project approval matrix in progress</h3><p>Three featured projects and two full case studies will appear here once publication constraints are approved.</p><a href="/case-studies/">View case-study framework →</a></div>
+      <div class="work-intro"><h2>Case studies, not a gallery of claims.</h2><p>Three systems selected for the quality of their engineering decisions, real operating context, and ability to show how I work.</p></div>
+      <ol class="featured-projects">{featuredProjects.map((project, index) => <li><div class="featured-number">0{index + 1}</div><div><p class="eyebrow">{project.kind}</p><h3>{project.name}</h3><dl><div><dt>Problem</dt><dd>{project.problem}</dd></div><div><dt>System</dt><dd>{project.system}</dd></div><div><dt>Outcome</dt><dd>{project.outcome}</dd></div></dl><p class="featured-tech">{project.technologies}</p><a href={project.href} target={project.href.startsWith('http') ? '_blank' : undefined} rel={project.href.startsWith('http') ? 'noreferrer' : undefined}>{project.action} →</a></div></li>)}</ol>
     </section>
 
     <section class="section shell" id="other-projects">
       <div class="section-label">04 / OTHER PROJECTS</div>
-      <div class="project-list">{projects.map((project) => <article><div><p class="eyebrow">{project.kind}</p><h2>{project.name}</h2><p>{project.summary}</p></div><div class="project-meta"><p>{project.technologies}</p><span>{project.state}</span></div></article>)}</div>
+      <div class="project-list">{projects.map((project) => <article><div><p class="eyebrow">{project.kind}</p><h2>{project.name}</h2><p>{project.summary}</p></div><div class="project-meta"><p>{project.technologies}</p><span>{project.state}</span><a href={project.href} target="_blank" rel="noreferrer">Repository ↗</a></div></article>)}</div>
     </section>
 
     <section class="section shell" id="process">
@@ -60,7 +60,7 @@ import { certificates, experience, process, projects, site, skills } from '../da
 
     <section class="section shell" id="writing">
       <div class="section-label">08 / WRITING</div>
-      <div class="writing-intro"><h2>From decision to delivered system.</h2><p>Long-form case studies will explain the problem, constraints, approach, architecture, important decisions, and result behind selected work.</p><a class="button quiet" href="/case-studies/">Browse case studies <span>→</span></a></div>
+      <div class="writing-intro"><h2>From decision to delivered system.</h2><p>Long-form case studies explain the problem, constraints, approach, architecture, important decisions, and result behind selected work.</p><a class="button quiet" href="/case-studies/">Browse case studies <span>→</span></a></div>
     </section>
 
     <section class="section shell" id="contact">
