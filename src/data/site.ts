@@ -7,7 +7,7 @@ export const site = {
   whatsapp: 'https://wa.me/923136314125',
   links: {
     github: 'https://github.com/HaiderNaqvi-5',
-    linkedin: '#',
+    linkedin: 'https://www.linkedin.com/in/syed-haider-abbas-naqvi/',
   },
 };
 
@@ -57,6 +57,7 @@ export const skills = [
 ] as const;
 
 export const projects = [
+  { name: 'EMC Veritas', kind: 'Certificate verification platform', summary: 'A digital certificate issuance and QR verification platform that makes student credentials easier to check.', technologies: 'FastAPI · React · Supabase · QR verification', state: 'Live platform', href: 'https://emc-veritas.pages.dev/', linkLabel: 'Open live platform' },
   { name: 'CampaignIQ', kind: 'Grounded AI workspace', summary: 'A review-first outreach workflow that connects CRM contacts, website intelligence, and personalized campaigns.', technologies: 'FastAPI · Next.js · pgvector · Redis', state: 'Public repository', href: 'https://github.com/HaiderNaqvi-5/CampaignIQ' },
   { name: 'QSScope', kind: 'Developer tooling', summary: 'Local-first quality, security, and testing intelligence for software projects.', technologies: 'FastAPI · Next.js · Playwright · SQLite', state: 'Public repository', href: 'https://github.com/HaiderNaqvi-5/QSScope' },
   { name: 'Aidwise', kind: 'AI platform', summary: 'A scholarship discovery and application-support platform with grounded retrieval and asynchronous workflows.', technologies: 'FastAPI · Next.js · pgvector · Celery', state: 'Live preview · repository: scholarai-platform', href: 'https://github.com/HaiderNaqvi-5/scholarai-platform' },

@@ -14,6 +14,7 @@ import { certificates, experience, featuredProjects, process, projects, site, sk
       <p class="hero-copy">{site.description} I work from the system underneath to the interface people use every day.</p>
       <div class="hero-actions">
         <a class="button primary" href="#work">View selected work <span>↘</span></a>
+        <a class="button quiet" href="/Haider-Naqvi-Resume.pdf" download>Haider Naqvi Resume <span>↓</span></a>
         <a class="button quiet" href="#contact">Get in touch <span>→</span></a>
       </div>
       <div class="signal" aria-label="System signal visualization">
@@ -40,7 +41,7 @@ import { certificates, experience, featuredProjects, process, projects, site, sk
 
     <section class="section shell" id="other-projects">
       <div class="section-label">04 / OTHER PROJECTS</div>
-      <div class="project-list">{projects.map((project) => <article><div><p class="eyebrow">{project.kind}</p><h2>{project.name}</h2><p>{project.summary}</p></div><div class="project-meta"><p>{project.technologies}</p><span>{project.state}</span><a href={project.href} target="_blank" rel="noreferrer">Repository ↗</a></div></article>)}</div>
+      <div class="project-list">{projects.map((project) => <article><div><p class="eyebrow">{project.kind}</p><h2>{project.name}</h2><p>{project.summary}</p></div><div class="project-meta"><p>{project.technologies}</p><span>{project.state}</span><a href={project.href} target="_blank" rel="noreferrer">{'linkLabel' in project ? project.linkLabel : 'Repository'} ↗</a></div></article>)}</div>
     </section>
 
     <section class="section shell" id="process">
@@ -68,5 +69,5 @@ import { certificates, experience, featuredProjects, process, projects, site, sk
       <div class="contact-grid"><div><h2>Let’s build something that holds up.</h2><p>For a role, a product problem, or a technically interesting conversation, reach me by email or WhatsApp.</p><a class="contact-email" href={`mailto:${site.email}`}>{site.email}</a><a class="contact-whatsapp" href={site.whatsapp} target="_blank" rel="noreferrer">WhatsApp: +92 313 6314125 ↗</a></div><ContactForm /></div>
     </section>
   </main>
-  <footer class="shell footer"><p>© {new Date().getFullYear()} {site.shortName}</p><div><a href={site.links.github}>GitHub</a><a href="/privacy/">Privacy</a></div></footer>
+  <footer class="shell footer"><p>© {new Date().getFullYear()} {site.shortName}</p><div><a href="/Haider-Naqvi-Resume.pdf" download>Resume</a><a href={site.links.linkedin} target="_blank" rel="noreferrer">LinkedIn</a><a href={site.links.github} target="_blank" rel="noreferrer">GitHub</a><a href="/privacy/">Privacy</a></div></footer>
 </BaseLayout>

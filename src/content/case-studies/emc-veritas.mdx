@@ -1,10 +1,11 @@
 ---
 title: "Making certificates easier to issue and harder to doubt"
-summary: "A production-rollout case study of a digital certificate issuance and QR verification platform for a student organization."
+summary: "A live digital certificate issuance and QR verification platform for a student organization."
 readingTime: "5 min read"
 publishedAt: 2026-10-01
 draft: false
 project: "EMC Veritas"
+projectUrl: "https://emc-veritas.pages.dev/"
 ---
 
 ## Problem
@@ -25,8 +26,8 @@ EMC Veritas combines a React interface, a FastAPI backend, a Supabase-backed dat
 
 ## Technical decisions and challenges
 
-Verification systems need to be clear at the moment of use. The data model and verification route were designed to keep the credential lookup path focused and to separate issuance workflows from the public verification surface. Production readiness is the current priority, so this case study deliberately avoids claiming release results before the live rollout is confirmed.
+Verification systems need to be clear at the moment of use. The data model and verification route were designed to keep the credential lookup path focused and to separate issuance workflows from the public verification surface. Production hardening centered on making that public path dependable without exposing issuance administration.
 
 ## Result
 
-EMC Veritas is in active production rollout. It provides a concrete foundation for issuing and checking organization credentials, and this page will be updated with the live verification experience after launch confirmation.
+EMC Veritas is live. It provides a concrete foundation for issuing and checking organization credentials through a public verification experience.

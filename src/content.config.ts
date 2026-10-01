@@ -10,6 +10,7 @@ const caseStudies = defineCollection({
     publishedAt: z.coerce.date(),
     draft: z.boolean().default(true),
     project: z.string(),
+    projectUrl: z.string().url().optional(),
   }),
 });
 
